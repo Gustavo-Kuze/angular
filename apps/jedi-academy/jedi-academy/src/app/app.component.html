@@ -1,8 +1,6 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <jad-header ></jad-header>
-<jad-student [student]="luke"></jad-student>
-<jad-student [student]="han"></jad-student>
-<jad-student [student]="leia"></jad-student>
+<jad-student *ngFor="let student of students" [student]="student"></jad-student>
 
 
 
