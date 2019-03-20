@@ -12,8 +12,14 @@ const bira: object = {
     age: 2
 }
 
-const bira2 = {...bira, height: 2}
+const bira2 = { ...bira, height: 2 }
+console.log(bira2["age"])
 
-bira2.age = false
+// parâmetros e retornos tipados
 
+// ao invés de ": number =>", poderia ser "=> <number>"
+const soma = (n1 = 0, n2?: number, ...ns: number[]): number =>
+    n1 + (n2 || 0) + (ns.length > 0 ? ns.reduce((prev, next) => prev + next) : 0)
 
+console.log("Soma:")
+console.log(soma(23, 1, 2, 23, 3, 1231234, 5))
