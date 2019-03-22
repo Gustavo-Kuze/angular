@@ -12,6 +12,13 @@ export class ShoppingCartComponent implements OnInit {
   ngOnInit() {
   }
 
+
+  addItem = (item: any) => this.shoppingCartService.addItem(item)
+
+  removeItem = (item: any) => this.shoppingCartService.removeItem(item)
+
+  clear = () => this.shoppingCartService.clear()
+
   items = () => <any[]>this.shoppingCartService.items
 
   total = () => <number>this.shoppingCartService.total()
