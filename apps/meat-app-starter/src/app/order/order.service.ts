@@ -11,4 +11,6 @@ export class OrderService{
     increment = (item: CartItem) => this.cartService.increment(item)
     decrement = (item: CartItem) => this.cartService.decrement(item)
     remove = (item: CartItem) => this.cartService.removeItem(item)
+    
+    itemsValue = () => this.cartService.total()
 }
