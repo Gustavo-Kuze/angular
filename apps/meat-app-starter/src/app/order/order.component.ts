@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RadioOption } from 'app/shared/radio/radio-option.model';
 import { OrderService } from './order.service';
 import { CartItem } from 'app/restaurant-detail/shopping-cart/cart-item.model';
+import { OrderItem } from './order.model';
 
 @Component({
   selector: 'mt-order',
@@ -23,7 +24,7 @@ export class OrderComponent implements OnInit {
   ngOnInit() {
   }
 
-  itemsValue(): number{
+  itemsValue(): number {
     return this.orderService.itemsValue()
   }
 
@@ -31,5 +32,14 @@ export class OrderComponent implements OnInit {
   increment = (item: CartItem) => this.orderService.increment(item)
   decrement = (item: CartItem) => this.orderService.decrement(item)
   remove = (item: CartItem) => this.orderService.remove(item)
+  checkOrder = (order: any) => {
+    order.orderItems = this.cartItems()
+      .map((item: CartItem) => new OrderItem(item.quantity, item.menuItem.id))
+    this.orderService.checkOrder(order)
+      .subscribe((orderId: string) => {
+        console.log(`Compra concluída ${orderId}`)
+        this.orderService.clear()
+      })
+  }
 
 }
