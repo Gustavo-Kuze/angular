@@ -27,6 +27,7 @@ export class OrderService {
             JSON.stringify(order),
             new RequestOptions({ headers }))
             .map(resp => resp.json())
+            .map(order => order.id)
     }
 
     clear = () => this.cartService.clear()
