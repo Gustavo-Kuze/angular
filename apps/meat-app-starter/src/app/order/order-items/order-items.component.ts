@@ -21,7 +21,7 @@ export class OrderItemsComponent implements OnInit {
   }
 
   emitIncrement = (item: CartItem) => this.increment.emit(item)
-  emitDecrement = (item: CartItem) => this.increment.emit(item)
-  emitRemove = (item: CartItem) => this.increment.emit(item)
+  emitDecrement = (item: CartItem) => this.decrement.emit(item)
+  emitRemove = (item: CartItem) => this.remove.emit(item)
 
 }
