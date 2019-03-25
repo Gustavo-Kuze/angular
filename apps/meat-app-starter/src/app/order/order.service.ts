@@ -19,9 +19,9 @@ export class OrderService {
     remove = (item: CartItem) => this.cartService.removeItem(item)
 
     itemsValue = () => this.cartService.total()
-    checkOrder = (order: any): Observable<string> => {
+    checkOrder = (order: Order): Observable<string> => {
         const headers = new Headers()
-        headers.append('Content-Type', 'applications/json')
+        headers.append('Content-Type', 'application/json')
         return this.http.post(
             `${MEAT_API}/orders`,
             JSON.stringify(order),
